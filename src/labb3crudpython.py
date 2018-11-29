@@ -6,6 +6,8 @@
 
 from OrmCrud import OrmCrud
 from OrmObj import OrmObj
+from operator import attrgetter
+
 crud = OrmCrud()
 OrmObj1 = OrmObj(1, "Mask", "Nice", "Black", 5)
 crud.add(OrmObj1)
@@ -36,5 +38,13 @@ listaAfterUpdate = crud.get_snakes()
 
 for k in listaAfterUpdate:
     print(k.getSnake())
+    
+print("\n")
+print("Sorterar listan på längd fallande:")
+snakes_sort=crud.get_snakes()
+snakes_sort.sort(key=attrgetter('length'),reverse=True)
 
+array = crud.get_snakes()
+for i in array:
+    print(i.getSnake())
 exit()
