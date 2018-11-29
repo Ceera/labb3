@@ -2,18 +2,39 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-if __name__ == "__main__":
-    print "Hello World"
 
 
 from OrmCrud import OrmCrud
+from OrmObj import OrmObj
 crud = OrmCrud()
-crud.add("Majsorm")
-crud.add("Huggorm")
-print(crud.get_snakes())
+OrmObj1 = OrmObj(1, "Mask", "Nice", "Black", 5)
+crud.add(OrmObj1)
+OrmObj2 = OrmObj(2, "Hussorm", "Angry", "Black", 25)
+crud.add(OrmObj2)
+OrmObj3 = OrmObj(3, "Majsorm", "Nice", "Green", 55)
+crud.add(OrmObj3)
 
-crud.delete("Snok")
-crud.update("Mask", "Kobra")
-print(crud.get_snakes())
-crud.add("bajsorm")
+lista = crud.get_snakes()
+
+for i in lista:
+    print(i.getSnake())
+
+crud.delete(1)
+
+print("Deletar nr 1")
+
+listaAfterDelete = crud.get_snakes()
+
+for j in listaAfterDelete:
+    print(j.getSnake())
+    
+print("Nu ska huggorm uppdateras till Huggmask")
+    
+crud.update(2, "Huggmask", "Hangry", "Red", 2)
+
+listaAfterUpdate = crud.get_snakes()
+
+for k in listaAfterUpdate:
+    print(k.getSnake())
+
 exit()
