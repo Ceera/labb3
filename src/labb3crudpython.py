@@ -10,11 +10,12 @@ from operator import attrgetter
 crud = OrmCrud()
 OrmObj1 = OrmObj(1, "Mask", "Nice", "Black", 5)
 crud.add(OrmObj1)
-OrmObj2 = OrmObj(2, "Hussorm", "Angry", "Black", 25)
+OrmObj2 = OrmObj(2, "Huggorm", "Angry", "Black", 25)
 crud.add(OrmObj2)
 OrmObj3 = OrmObj(3, "Majsorm", "Nice", "Green", 55)
 crud.add(OrmObj3)
 
+#lagg in encode och decode pa data trafiken for svenska bokstaver
 lista = crud.get_snakes()
 
 for i in lista:
@@ -40,16 +41,20 @@ for k in listaAfterUpdate:
     
     
 print("\n")
-print("Sorterar listan på längd fallande:")
+print("Sorterar listan pa length fallande:")
 snakes_sort=crud.get_snakes()
 snakes_sort.sort(key=attrgetter('length'),reverse=True)
 
 array = crud.get_snakes()
 for i in array:
     print(i.getSnake())
-    
-    
-print(lista.index(2))
- 
 
+print("\n")
+print("soker pa index 0 i listan")
+
+idx_search = crud.get_snakes()
+result = idx_search[0]
+if(result != True):
+    print(result.getSnake())
+else:print("Not in the list")    
 exit()
