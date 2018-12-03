@@ -50,7 +50,7 @@ for i in array:
     print(i.getSnake())
 
 print("\n")
-print("soker pa index 0 i listan")
+print("Tar fram det forsta i listan")
 
 idx_search = crud.get_snakes()
 result = idx_search[0]
